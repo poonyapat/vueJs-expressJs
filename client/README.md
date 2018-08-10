@@ -1,6 +1,6 @@
 # client
 
-> A vue.js project with express.js
+> vue application with express.js
 
 ## Build Setup
 

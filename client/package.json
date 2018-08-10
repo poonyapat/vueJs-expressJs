@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "description": "A vue.js project with express.js",
+  "description": "vue application with express.js",
   "author": "Zyle <poonyapat.y@ku.th>",
   "private": true,
   "scripts": {
