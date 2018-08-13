@@ -12,7 +12,6 @@ function jwtSignUser (user){
 module.exports =  {
     async register (req, res) {
         try{
-            // res.send(user_credential)
             const credential = await user_credential.create(req.body)
             res.send(credential.toJSON())
         }
@@ -27,25 +26,21 @@ module.exports =  {
             const credential = await user_credential.findOne({
                 where: {
                     username: req.body.username,
-                    password: req.body.password
                 }
             })
             if (!credential){
                 res.status(403).send({
-                    error: "Wrong username or password"
+                    error: "This account doesn't exist"
                 })
             }
-            // const isPasswordValid = await credential.comparePassword(req.body.password)
-            // if (!isPasswordValid){
-            //     res.status(403).send({
-            //         error: "Wrong password"
-            //     })
-            // }
+            const isPasswordValid = await credential.comparePassword(req.body.password)
+            if (!isPasswordValid){
+                res.status(403).send({
+                    error: "Wrong password"
+                })
+            }
             res.send({
-                user: {
-                    username: credential.username,
-                    role: credential.role
-                },
+                user: credential.toJSON(),
                 token: jwtSignUser(req.body)
             })
         }
