@@ -1,8 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Seminar = sequelize.define('Seminar', {
-        title: DataTypes.STRING,
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         description: DataTypes.TEXT,
-        maxAttendees: DataTypes.SMALLINT,
+        maxAttendees: {
+            type: DataTypes.SMALLINT,
+            allowNull: false
+        },
         place: DataTypes.TEXT
     })
 
