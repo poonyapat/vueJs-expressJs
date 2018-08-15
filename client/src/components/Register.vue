@@ -2,10 +2,7 @@
     <v-layout>
       <v-flex xs12 sm6 offset-sm3>
         <div class="white elevation-2">
-          <v-toolbar fla dense class="cyan" dark>
-            <v-toolbar-title> Register </v-toolbar-title>
-          </v-toolbar> 
-          <div class="pl-4 pr-4 pt-2 pb-2">
+          <panel title="Register">
             <v-text-field
               label="Username"
               v-model="username"
@@ -21,7 +18,7 @@
             <div v-html="error" class="err"></div>
             <br>
             <v-btn class="cyan" @click="register" dark>Register</v-btn>
-          </div>
+          </panel>
         </div>
       </v-flex>
     </v-layout>
@@ -29,6 +26,7 @@
 
 <script>
 import AuthenticationService from '@/services/authenticationService'
+import Panel from '@/components/Panel'
 export default {
   name: 'Register',
   data: () => {
@@ -46,7 +44,7 @@ export default {
   methods: {
     async register () {
       try {
-        const response = await AuthenticationService.register({
+        await AuthenticationService.register({
           username: this.username,
           password: this.password,
           role: 'External User'
@@ -58,6 +56,9 @@ export default {
         this.error = error.response.data.error
       }
     }
+  },
+  components: {
+    Panel
   }
 }
 </script>

@@ -11,17 +11,17 @@
       </main>
     </v-app>
   </div>
-    
+
 </template>
 
 <script>
-import PageHeader from "@/components/Header";
+import PageHeader from '@/components/Header'
 export default {
-  name: "App",
+  name: 'App',
   components: {
     PageHeader
   }
-};
+}
 </script>
 
 <style>
