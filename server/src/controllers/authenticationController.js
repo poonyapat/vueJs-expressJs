@@ -39,9 +39,10 @@ module.exports =  {
                     error: "Wrong password"
                 })
             }
+            const credJSON = credential.toJSON
             res.send({
-                user: credential.toJSON(),
-                token: jwtSignUser(req.body)
+                user: credJSON,
+                token: jwtSignUser(credJSON)
             })
         }
         catch (err) {
