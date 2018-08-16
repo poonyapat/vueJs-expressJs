@@ -5,7 +5,7 @@ module.exports =  {
     async index(req, res){
         try{
             const seminars = await Seminar.findAll({
-                limit: 10
+                limit: 30
             })
             console.log(seminars)
             res.send(seminars)
