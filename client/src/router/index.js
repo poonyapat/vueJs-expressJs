@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Seminars from '@/components/Seminars'
 import SeminarCreator from '@/components/SeminarCreator'
+import ViewSeminar from '@/components/ViewSeminar'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/seminars/create',
       name: 'SeminarCreator',
       component: SeminarCreator
+    },
+    {
+      path: '/seminars/:seminarId',
+      name: 'ViewSeminar',
+      component: ViewSeminar
     }
   ]
 })

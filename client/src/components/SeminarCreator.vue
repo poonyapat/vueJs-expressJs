@@ -65,12 +65,12 @@ export default {
     async createSeminar () {
       this.error = null
       const areAllFieldsFilledIn = await Object.keys(this.seminar).every(key => !!this.seminar[key])
-      if (!areAllFieldsFilledIn){
-        this.error = "Please fill in all the required fields"
+      if (!areAllFieldsFilledIn) {
+        this.error = 'Please fill in all the required fields'
         return
       }
       try {
-        const res = await SeminarService.post(this.seminar)
+        await SeminarService.post(this.seminar)
         this.$router.push({name: 'seminars'})
       } catch (error) {
         this.error = error.response.data.error

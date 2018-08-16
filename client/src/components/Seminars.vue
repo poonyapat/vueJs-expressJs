@@ -7,11 +7,25 @@
             <v-icon>add_circle_outline</v-icon>
           </v-btn>
         </template>
-        <div v-for="seminar in seminars" :key="seminar.id">
-          <h1> {{seminar.title}} </h1>
-          <p> {{seminar.place}} </p>
-          <p> Max: {{seminar.maxAttendees}} </p>
-        </div>
+        <v-layout column>
+          <v-flex v-for="(seminar) in seminars" :key="seminar.id">
+            <panel :title="seminar.title" class="ma-2">
+              <template slot="menu">
+                <v-btn flat @click="$router.push({name: 'ViewSeminar', params: {seminarId: seminar.id}})">
+                  <v-icon>streetview</v-icon>
+                  view
+                </v-btn>
+                <p class="center-text v-btn__content ml-2">
+                <!-- <p class="center-text ml-2"> -->
+                  Max: {{seminar.maxAttendees}}
+                </p>
+              </template>
+              <div class="description">
+                <pre> {{seminar.description}} </pre>
+              </div>
+            </panel>
+          </v-flex>
+        </v-layout>
       </panel>
     </v-flex>
   </v-layout>
@@ -37,5 +51,15 @@ export default {
 </script>
 
 <style scoped>
+.description {
+  text-align: start;
+  max-height: 7.5em;
+  overflow: hidden;
+}
 
+.center-text {
+  width: 6em;
+  max-width: 6em;
+  /* height: 100%; */
+}
 </style>
