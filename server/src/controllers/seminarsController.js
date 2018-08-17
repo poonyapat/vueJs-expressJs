@@ -4,10 +4,24 @@ const {Seminar} = require('../models')
 module.exports =  {
     async index(req, res){
         try{
-            const seminars = await Seminar.findAll({
-                limit: 30
-            })
-            console.log(seminars)
+            let seminars = null
+            console.log(req.query.search)
+            if (req.query.search){
+                seminars = await Seminar.findAll({
+                    where: {
+                        title: {
+                            $like: `%${req.query.search}%`
+                        }
+                    },
+                    limit: 10
+                })
+            }
+            else {
+                seminars = await Seminar.findAll({
+                    limit: 10
+                })
+            }
+            // console.log(seminars)
             res.send(seminars)
         }catch (err){
             res.status(500).send('An error has occured trying to fetch the seminars')
