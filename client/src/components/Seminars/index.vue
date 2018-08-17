@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import SeminarsPanel from '@/components/SeminarsPanel'
-import SeminarsSearcher from '@/components/SeminarsSearcher'
+import SeminarsPanel from './SeminarsPanel'
+import SeminarsSearcher from './SeminarsSearcher'
 export default {
   components: {
     SeminarsPanel, SeminarsSearcher

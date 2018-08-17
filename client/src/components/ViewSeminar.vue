@@ -16,7 +16,6 @@ export default {
   async mounted () {
     const seminarId = this.$store.state.route.params.seminarId
     this.seminar = (await SeminarsService.show(seminarId)).data
-    console.log(this.seminar)
   },
   components: {
     Panel
