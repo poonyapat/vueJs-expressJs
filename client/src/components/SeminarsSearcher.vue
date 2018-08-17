@@ -9,7 +9,9 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import Panel from '@/components/Panel'
+
 export default {
   data () {
     return {
@@ -17,7 +19,7 @@ export default {
     }
   },
   watch: {
-    searchValue () {
+    searchValue: _.debounce(async function (value) {
       const route = {
         name: 'seminars'
       }
@@ -28,7 +30,7 @@ export default {
         }
       }
       this.$router.push(route)
-    },
+    }, 700),
     '$route.query.search': {
       immediate: true,
       handler (value) {
