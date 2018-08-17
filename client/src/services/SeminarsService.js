@@ -11,7 +11,7 @@ export default {
   post (data) {
     return Api().post('seminars', data)
   },
-  show (seminarId){
+  show (seminarId) {
     return Api().get(`seminars/${seminarId}`)
   }
 }

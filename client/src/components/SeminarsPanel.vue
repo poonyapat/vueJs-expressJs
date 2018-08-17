@@ -39,11 +39,11 @@ export default {
   },
   watch: {
     '$route.query.search': {
-        immediate: true,
-        async handler(value){
-          this.seminars = (await SerminarsService.index(value)).data
-          console.log(this.seminars)
-        }
+      immediate: true,
+      async handler (value) {
+        this.seminars = (await SerminarsService.index(value)).data
+        console.log(this.seminars)
+      }
     }
   },
   components: {
