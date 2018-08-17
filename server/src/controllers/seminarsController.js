@@ -13,6 +13,16 @@ module.exports =  {
             res.status(500).send('An error has occured trying to fetch the seminars')
         }
     },
+    async show(req, res){
+        try {
+            const seminar = await Seminar.findById(req.params.seminarId)
+            res.send(seminar)
+        } catch(err){
+            res.status(500).send({
+                error: 'an error has occured trying to fetch the seminars'
+            })
+        }
+    },
     async post(req, res){
         try{
             const seminar = await Seminar.create(req.body)

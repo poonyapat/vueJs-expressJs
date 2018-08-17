@@ -15,4 +15,7 @@ module.exports = (app) => {
 
     app.post('/seminars',
     SeminarsController.post)
+
+    app.get('/seminars/:seminarId',
+    SeminarsController.show)
 }
