@@ -1,7 +1,7 @@
 <template>
     <panel title="Seminars">
         <template slot="menu">
-          <v-btn flat @click="$router.push({name: 'SeminarCreator'})">
+          <v-btn flat :to="{name: 'SeminarCreator'}">
             <v-icon>add_circle_outline</v-icon>
           </v-btn>
         </template>
@@ -9,7 +9,7 @@
           <v-flex v-for="(seminar) in seminars" :key="seminar.id">
             <panel :title="seminar.title" class="ma-2">
               <template slot="menu">
-                <v-btn flat @click="$router.push({name: 'ViewSeminar', params: {seminarId: seminar.id}})">
+                <v-btn flat :to="{name: 'ViewSeminar', params: {seminarId: seminar.id}}">
                   <v-icon>streetview</v-icon>
                   view
                 </v-btn>
